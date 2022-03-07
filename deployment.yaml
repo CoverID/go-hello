@@ -19,3 +19,14 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 10000
+        env:
+        - name: ELASTIC_APM_SERVICE_NAME
+          value: "Golang-App"
+        - name: ELASTIC_APM_SERVER_URL
+          value: "http://server:8200"
+        - name: ELASTIC_APM_ENVIRONMENT
+          value: "development"
+        - name: ELASTIC_APM_SECRET_TOKEN
+          value: "YXJKWWtOVFVLZjY0T0V4RDl5Rm5HdThWQVNnMlJMTUhRMXczb3FsYmpocEJlczcwV0l6bXRYWnZQNUNkaWM="
+        - name: ELASTIC_APM_CAPTURE_BODY
+          value: "all"

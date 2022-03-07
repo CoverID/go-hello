@@ -1,8 +1,6 @@
 package main
 
 import (
-	"github.com/CoverID/go-hello/src/config"
-
 	"github.com/gofiber/fiber/v2"
 	"go.elastic.co/apm/module/apmfiber"
 )
@@ -24,7 +22,6 @@ func login(c *fiber.Ctx) error {
 }
 
 func main() {
-	config.ConfigureAPM()
 	app := fiber.New()
 	app.Use(apmfiber.Middleware())
 
