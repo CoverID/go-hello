@@ -7,6 +7,6 @@ RUN go mod download
 
 RUN go build -o /hello
 
-EXPOSE 3000
+EXPOSE 10000
 
 CMD [ "/hello" ]

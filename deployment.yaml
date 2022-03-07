@@ -18,4 +18,4 @@ spec:
         image: coverid/golang-hello
         imagePullPolicy: IfNotPresent
         ports:
-          - containerPort: 3000
+          - containerPort: 10000
