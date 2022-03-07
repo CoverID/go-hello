@@ -28,6 +28,9 @@ func main() {
 	app := fiber.New()
 	app.Use(apmfiber.Middleware())
 
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello Golang")
+	})
 	app.Post("/login", login)
 
 	app.Listen(":3000")
