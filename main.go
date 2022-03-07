@@ -1,7 +1,7 @@
 package main
 
 import (
-	"example/hello/src/config"
+	"github.com/CoverID/go-hello/src/config"
 
 	"github.com/gofiber/fiber/v2"
 	"go.elastic.co/apm/module/apmfiber"
