@@ -1,14 +1,16 @@
-FROM golang:latest as builder
-COPY . /app/go
-WORKDIR /app/go
+FROM golang:1.12-alpine as builder
+
 ENV GO111MODULE=on
-RUN CGO_ENABLED=0 GOOS=linux go build -o go
-#second stage
+
+WORKDIR /app
+COPY . .
+
+RUN apk --no-cache add git alpine-sdk build-base gcc
+
+RUN go build -o example ./main.go
+
 FROM alpine:latest
+RUN apk --no-cache add ca-certificates
 WORKDIR /root/
-RUN apk add --no-cache tzdata
-COPY --from=builder /app/go .
-
-EXPOSE 8086
-
-CMD ["./go"]
+COPY --from=builder /app/example .
+CMD ["./example"]
